@@ -75,15 +75,17 @@
         <div class="emoji">🔒</div>
         <h2>Accesso Protetto</h2>
         <p>Inserisci il codice di accesso:</p>
+             <p>(Sta scritto sul retro del foglietto)</p>
         <input type="password" id="password" placeholder="Codice">
         <button onclick="checkPassword()">Entra</button>
-        <p id="error">Codice errato ❌</p>
+        <p id="error">Hai Sbagliato. Sai leggere?? ❌</p>
     </div>
 
     <script>
         // Link codificato in Base64
         const linkEncoded = "aHR0cHM6Ly9nZXQuY2VsZWJyYXRlLmFwcC9zemszcG1vMlRxZWJIemFrNw=="; 
         const correctPass = "9876";
+        const redirectLink = "https://get.celebrate.app/dNj86a8HXb3PzMXj6"; // ← Cambia questo link
 
         function checkPassword() {
             const pass = document.getElementById('password').value.trim();
