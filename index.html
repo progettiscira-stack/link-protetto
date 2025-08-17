@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Accesso Protetto</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 100px; }
+    input[type="password"] { padding: 10px; font-size: 16px; }
+    button { padding: 10px 20px; font-size: 16px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h2>🔐 Inserisci la password per accedere</h2>
+  <input type="password" id="password" placeholder="Password">
+  <br>
+  <button onclick="checkPassword()">Accedi</button>
+
+  <script>
+    function checkPassword() {
+      const password = document.getElementById("password").value;
+      const correctPassword = "124816"; // ← Cambia questa password
+      const redirectLink = "https://get.celebrate.app/CxGYhyzUEzKgPEEm9"; // ← Cambia questo link
+
+      if (password === correctPassword) {
+        window.location.href = redirectLink;
+      } else {
+        alert("Password errata. Riprova.");
+      }
+    }
+  </script>
+</body>
+</html>
