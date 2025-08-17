@@ -1,82 +1,98 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accesso Protetto</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      background-color: #ff7a00; /* Arancione acceso */
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      text-align: center;
-    }
-    .container {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-      max-width: 350px;
-      width: 90%;
-    }
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-    input {
-      padding: 0.7rem;
-      border: none;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      width: 100%;
-      font-size: 1rem;
-    }
-    button {
-      background-color: #fff;
-      color: #ff7a00;
-      border: none;
-      padding: 0.7rem 1.2rem;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    button:hover {
-      background-color: #ffe0cc;
-    }
-    .error {
-      color: #ffd1d1;
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accesso Protetto</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #ff4b2b, #ff416c);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #fff;
+            margin: 0;
+        }
+        .box {
+            background: rgba(255,255,255,0.15);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 320px;
+            width: 90%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            backdrop-filter: blur(6px);
+        }
+        h2 {
+            margin-bottom: 0.5rem;
+        }
+        p {
+            margin-top: 0;
+        }
+        input {
+            padding: 0.6rem;
+            border: none;
+            border-radius: 6px;
+            margin-top: 1rem;
+            width: 100%;
+            font-size: 1rem;
+            text-align: center;
+        }
+        button {
+            padding: 0.7rem;
+            margin-top: 1rem;
+            background-color: #ffd700;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease-in-out;
+        }
+        button:hover {
+            background-color: #ffb400;
+        }
+        #error {
+            color: #ffdddd;
+            background: rgba(255,0,0,0.3);
+            padding: 0.4rem;
+            border-radius: 4px;
+            display: none;
+            margin-top: 0.5rem;
+        }
+        .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🔒 Area Riservata</h1>
-    <p>Inserisci la password per accedere</p>
-    <input type="password" id="password" placeholder="Password">
-    <button onclick="checkPassword()">Entra</button>
-    <p id="error" class="error"></p>
-  </div>
+    <div class="box">
+        <div class="emoji">🔒</div>
+        <h2>Accesso Protetto</h2>
+        <p>Inserisci il codice di accesso:</p>
+        <input type="password" id="password" placeholder="Codice">
+        <button onclick="checkPassword()">Entra</button>
+        <p id="error">Codice errato ❌</p>
+    </div>
 
-  <script>
-    function checkPassword() {
-      const input = document.getElementById('password').value;
-      const correctPassword = "9753";
-      if (input === correctPassword) {
-        window.location.href = "https://get.celebrate.app/PNZPEm3i56d2mgLJ7";
-      } else {
-        document.getElementById('error').textContent = "❌ Password errata";
-      }
-    }
-  </script>
+    <script>
+        // Link codificato in Base64
+        const linkEncoded = "aHR0cHM6Ly9nZXQuY2VsZWJyYXRlLmFwcC9zemszcG1vMlRxZWJIemFrNw=="; 
+        const correctPass = "9876";
+
+        function checkPassword() {
+            const pass = document.getElementById('password').value.trim();
+            if (pass === correctPass) {
+                window.location.href = atob(linkEncoded);
+            } else {
+                document.getElementById('error').style.display = "block";
+            }
+        }
+    </script>
 </body>
 </html>
