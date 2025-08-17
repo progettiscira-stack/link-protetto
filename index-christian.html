@@ -62,6 +62,8 @@
   <div class="container">
     <h1>🔒 Area Riservata</h1>
     <p>Inserisci la password per accedere</p>
+     <p>(Sta scritto sul retro del foglietto)</p>
+
     <input type="password" id="password" placeholder="Password">
     <button onclick="checkPassword()">Entra</button>
     <p id="error" class="error"></p>
@@ -74,7 +76,7 @@
       if (input === correctPassword) {
         window.location.href = "https://get.celebrate.app/PNZPEm3i56d2mgLJ7";
       } else {
-        document.getElementById('error').textContent = "❌ Password errata";
+        document.getElementById('error').textContent = "❌ Hai Sbagliato. Sai leggere?? ";
       }
     }
   </script>
